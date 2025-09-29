@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: starter   # puedes cambiarlo a "standard" si necesitas más RAM
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=4096
+      - key: GENERIC_TIMEZONE
+        value: America/Lima
+      - key: WEBHOOK_TUNNEL_URL
+        value: https://n8n-desarrollo-1.onrender.com
